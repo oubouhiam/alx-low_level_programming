@@ -1,7 +1,4 @@
 #!/bin/bash
-# Compile all .c files into object files
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -c *.c
-# Create dynamic library liball.so from object files
+gcc -Wall -Wextra -Werror -pedantic -c -fPIC *.c
 gcc -shared -o liball.so *.o
-# Clean up object files
-rm *.o
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
